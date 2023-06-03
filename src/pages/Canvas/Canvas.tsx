@@ -28,8 +28,8 @@ export const Canvas = ({ children }: CanvasProps): JSX.Element => {
         display: 'grid',
         width: '100vw',
         height: '100vh',
-        gridTemplateColumns: 'repeat(200, 1fr)',
-        gridTemplateRows: 'repeat(100, 1fr)',
+        gridTemplateColumns: 'repeat(auto-fill, 10px)',
+        gridTemplateRows: 'repeat(auto-fill, 10px)',
     };
 
     const handleScroll = () => {
