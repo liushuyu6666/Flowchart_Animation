@@ -1,5 +1,8 @@
 import { ReactNode, useEffect, useState } from 'react';
 import Rectangle, { RectanglePosition } from '../../components/Rectangle';
+import Arrow from '../../components/Arrow';
+import BreakLines from '../../components/BreakLines';
+import { Coordination } from '../../utils/Coordination';
 
 export interface CanvasProps {
     children: ReactNode;
@@ -28,9 +31,28 @@ export const Canvas = ({ children }: CanvasProps): JSX.Element => {
         display: 'grid',
         width: '100vw',
         height: '100vh',
-        gridTemplateColumns: 'repeat(auto-fill, 10px)',
-        gridTemplateRows: 'repeat(auto-fill, 10px)',
+        gridTemplateColumns: 'repeat(auto-fill, 20px)',
+        gridTemplateRows: 'repeat(auto-fill, 20px)',
     };
+
+    const breakPoints: Coordination[] = [
+        {
+            x: 17,
+            y: 17
+        },
+        {
+            x: 17,
+            y: 27
+        },
+        {
+            x: 27,
+            y: 27
+        },
+        {
+            x: 27,
+            y: 17
+        }
+    ]
 
     const handleScroll = () => {
         const scrollDistance = window.scrollY;
@@ -62,6 +84,8 @@ export const Canvas = ({ children }: CanvasProps): JSX.Element => {
                     rightBottomPoint={rightBottomPoint}
                     text={scrollPosition}
                 />
+                <Arrow granularity={20} startPoint={{x: 2, y: 1}} endPoint={{x: 2, y: 5}}/>
+                <BreakLines breakPoints={breakPoints} />
             </div>
         </div>
     );

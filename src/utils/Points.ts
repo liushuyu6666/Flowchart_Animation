@@ -1,3 +1,4 @@
+import { LineProps } from '../components/Line';
 import { Coordination } from './Coordination';
 import { GridArea, GridTemplate } from './Grid';
 
@@ -52,5 +53,20 @@ export class Points {
                 this.gridArea!.columnEnd - this.gridArea!.columnStart,
             );
         }
+    }
+
+    public convertToLines(): LineProps[] {
+        if(this.points.length < 2) return [];
+        
+        const lines = [];
+        for(let next = 1; next < this.points.length; next++) {
+            const startPoint = this.points[next - 1];
+            const endPoint = this.points[next];
+            lines.push({
+                startPoint, endPoint
+            });
+        }
+
+        return lines;
     }
 }
