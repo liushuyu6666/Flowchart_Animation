@@ -1,16 +1,5 @@
-import { Coordination } from '../components/Coordination';
-
-export interface GridArea {
-    rowStart: number;
-    rowEnd: number;
-    columnStart: number;
-    columnEnd: number;
-}
-
-export interface GridTemplate {
-    gridTemplateRows: number;
-    gridTemplateColumns: number;
-}
+import { Coordination } from './Coordination';
+import { GridArea, GridTemplate } from './Grid';
 
 export class Points {
     points: Coordination[];

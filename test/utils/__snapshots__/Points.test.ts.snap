@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Points addPoint should update gridArea and gridTemplate when adding subsequent points 1`] = `
+[
+  {
+    "x": 2,
+    "y": 3,
+  },
+  {
+    "x": 4,
+    "y": 1,
+  },
+  {
+    "x": 3,
+    "y": 5,
+  },
+]
+`;
+
+exports[`Points addPoint should update gridArea and gridTemplate when adding subsequent points 2`] = `
+{
+  "columnEnd": 5,
+  "columnStart": 1,
+  "rowEnd": 4,
+  "rowStart": 2,
+}
+`;
+
+exports[`Points addPoint should update gridArea and gridTemplate when adding subsequent points 3`] = `
+{
+  "gridTemplateColumns": 4,
+  "gridTemplateRows": 2,
+}
+`;
+
+exports[`Points addPoint should update gridArea and gridTemplate when adding the first point 1`] = `
+[
+  {
+    "x": 2,
+    "y": 3,
+  },
+]
+`;
+
+exports[`Points addPoint should update gridArea and gridTemplate when adding the first point 2`] = `
+{
+  "columnEnd": 3,
+  "columnStart": 3,
+  "rowEnd": 2,
+  "rowStart": 2,
+}
+`;
+
+exports[`Points addPoint should update gridArea and gridTemplate when adding the first point 3`] = `
+{
+  "gridTemplateColumns": 0,
+  "gridTemplateRows": 0,
+}
+`;
