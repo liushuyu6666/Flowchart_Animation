@@ -4,11 +4,13 @@ import { GridArea, GridTemplate } from './Grid';
 
 export class Points {
     points: Coordination[];
+    relativePoints: Coordination[];
     gridArea: GridArea | undefined;
     gridTemplate: GridTemplate | undefined;
 
     constructor() {
         this.points = [];
+        this.relativePoints = [];
         this.gridArea = undefined;
         this.gridTemplate = undefined;
     }
@@ -53,15 +55,37 @@ export class Points {
                 this.gridArea!.columnEnd - this.gridArea!.columnStart,
             );
         }
+
+        // Add relativePoints
+        const relativePoint: Coordination = {
+            x: point.x - this.gridArea.rowStart + 1,
+            y: point.y - this.gridArea.columnStart + 1
+        }
+        this.relativePoints.push(relativePoint);
     }
 
-    public convertToLines(): LineProps[] {
+    public convertPointsToLines(): LineProps[] {
         if(this.points.length < 2) return [];
         
         const lines = [];
         for(let next = 1; next < this.points.length; next++) {
             const startPoint = this.points[next - 1];
             const endPoint = this.points[next];
+            lines.push({
+                startPoint, endPoint
+            });
+        }
+
+        return lines;
+    }
+
+    public convertRelativePointsToLines(): LineProps[] {
+        if(this.relativePoints.length < 2) return [];
+        
+        const lines = [];
+        for(let next = 1; next < this.relativePoints.length; next++) {
+            const startPoint = this.relativePoints[next - 1];
+            const endPoint = this.relativePoints[next];
             lines.push({
                 startPoint, endPoint
             });

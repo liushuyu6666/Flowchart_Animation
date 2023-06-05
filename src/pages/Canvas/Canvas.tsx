@@ -3,6 +3,7 @@ import Rectangle, { RectanglePosition } from '../../components/Rectangle';
 import Arrow from '../../components/Arrow';
 import BreakLines from '../../components/BreakLines';
 import { Coordination } from '../../utils/Coordination';
+import DiagonalLine from '../../components/DiagonalLine';
 
 export interface CanvasProps {
     children: ReactNode;
@@ -15,8 +16,8 @@ export const Canvas = ({ children }: CanvasProps): JSX.Element => {
         y: 10,
     });
     const [rightBottomPoint, setRightBottomPoint] = useState({
-        x: 10,
-        y: 10,
+        x: 20,
+        y: 20,
     });
 
     const scrollingStyles = {
@@ -31,6 +32,7 @@ export const Canvas = ({ children }: CanvasProps): JSX.Element => {
         display: 'grid',
         width: '100vw',
         height: '100vh',
+        gap: '0 0',
         gridTemplateColumns: 'repeat(auto-fill, 20px)',
         gridTemplateRows: 'repeat(auto-fill, 20px)',
     };
@@ -50,6 +52,14 @@ export const Canvas = ({ children }: CanvasProps): JSX.Element => {
         },
         {
             x: 27,
+            y: 17
+        },
+        {
+            x: 22,
+            y: 22
+        },
+        {
+            x: 17,
             y: 17
         }
     ]
@@ -79,13 +89,14 @@ export const Canvas = ({ children }: CanvasProps): JSX.Element => {
         <div style={scrollingStyles}>
             <div style={canvasStyles as any} id="canvas">
                 {children}
-                <Rectangle
+                {/* <Rectangle
                     leftTopPoint={leftTopPoint}
                     rightBottomPoint={rightBottomPoint}
                     text={scrollPosition}
-                />
+                /> */}
                 <Arrow granularity={20} startPoint={{x: 2, y: 1}} endPoint={{x: 2, y: 5}}/>
                 <BreakLines breakPoints={breakPoints} />
+                {/* <DiagonalLine /> */}
             </div>
         </div>
     );
