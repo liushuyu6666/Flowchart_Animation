@@ -1,9 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
-import Rectangle, { RectanglePosition } from '../../components/Rectangle';
 import Arrow from '../../components/Arrow';
 import BreakLines from '../../components/BreakLines';
 import { Coordination } from '../../utils/Coordination';
-import DiagonalLine from '../../components/DiagonalLine';
 
 export interface CanvasProps {
     children: ReactNode;
